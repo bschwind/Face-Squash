@@ -65,11 +65,11 @@ namespace FaceSquash
             testTexture = Content.Load<Texture2D>("Textures/brian");
             handleTex = Content.Load<Texture2D>("Textures/Vertex");
             faceSquashEffect = Content.Load<Effect>("FaceSquash");
-            distortedTarget = new RenderTarget2D(GraphicsDevice, 
-                                                 testTexture.Width, 
-                                                 testTexture.Height, 
-                                                 false, 
-                                                 SurfaceFormat.Color, 
+            distortedTarget = new RenderTarget2D(GraphicsDevice,
+                                                 testTexture.Width,
+                                                 testTexture.Height,
+                                                 false,
+                                                 SurfaceFormat.Color,
                                                  DepthFormat.None);
 
             vertexHandles = new List<Vector2>(4);
@@ -95,8 +95,11 @@ namespace FaceSquash
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
+                || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
                 this.Exit();
+            }
 
             MouseState currentMouseState = Mouse.GetState();
 

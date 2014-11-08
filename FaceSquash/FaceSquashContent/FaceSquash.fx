@@ -7,8 +7,8 @@ float2 corners[4];
 sampler TextureSampler = sampler_state
 {
     Texture = (tex);
-    AddressU = WRAP;
-    AddressV = WRAP;
+    AddressU = CLAMP;
+    AddressV = CLAMP;
     MagFilter = LINEAR;
     MinFilter = LINEAR;
     Mipfilter = LINEAR;
